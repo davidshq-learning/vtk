@@ -64,7 +64,6 @@ interactor.setView(renderWindowView);
 interactor.initialize();
 interactor.setInteractorStyle(vtkInteractorStyleTrackballCamera.newInstance());
 
-
 function updateViewPort(element, renderer) {
   // Get the viewport dimensions
   const { innerHeight, innerWidth } = window;
@@ -107,7 +106,7 @@ let bgIndex = 0;
 let rendererId = 1;
 
 // Ensures the interactor is interacting with the user desired rendering
-function bindInteractor(renderer, el) {
+function bindInteractor(el) {
   // only change the interactor's container if needed
   if (interactor.getContainer() !== el) {
     if (interactor.getContainer()) {
@@ -146,9 +145,9 @@ function addRenderer() {
 
   // Observe when the mouse is enters or leaves the container
   container.addEventListener('pointerenter', () =>
-    bindInteractor(renderer, container)
+    bindInteractor(container)
   );
-  container.addEventListener('pointerleave', () => bindInteractor(null, null));
+  container.addEventListener('pointerleave', () => bindInteractor(null));
 
   renderer.addActor(actor);
   renderWindow.addRenderer(renderer);
