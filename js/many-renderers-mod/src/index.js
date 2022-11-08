@@ -17,6 +17,7 @@ import vtkRenderer from '@kitware/vtk.js/Rendering/Core/Renderer';
 import vtkInteractorStyleTrackballCamera from '@kitware/vtk.js/Interaction/Style/InteractorStyleTrackballCamera';
 
 import { colors, properties } from './constants';
+import { applyStyle } from './dom-manipulate';
 
 // Meshes
 const meshes = [];
@@ -38,9 +39,11 @@ const RENDERERS = {};
 
 // Create our renderWindow instance
 const renderWindow = vtkRenderWindow.newInstance();
+
 // Create our view for the renderWindow
 const renderWindowView = renderWindow.newAPISpecificView();
-// Add the view to the renderWindow
+
+// Add the renderWindowView to the renderWindow
 renderWindow.addView(renderWindowView);
 
 // Setup HTML container for renderWindow view
@@ -96,7 +99,7 @@ function resize() {
 
 // Reports changes to dimensions of body in viewport
 new ResizeObserver(resize).observe(document.body);
-// If dimensions change, rerender
+// If page is scrolled
 document.addEventListener('scroll', recomputeViewports);
 
 // Renderers
@@ -104,20 +107,6 @@ let meshIndex = 0;
 let propertyIndex = 0;
 let bgIndex = 0;
 let rendererId = 1;
-
-// Define the attributes of each container for a rendered output
-function applyStyle(element) {
-  element.classList.add('renderer');
-  element.style.width = '200px';
-  element.style.height = '200px';
-  element.style.margin = '20px';
-  element.style.border = 'solid 1px #333';
-  element.style.display = 'inline-block';
-  element.style.boxSizing = 'border';
-  element.style.textAlign = 'center';
-  element.style.color = 'white';
-  return element;
-}
 
 // This doesn't seem to work?
 let captureCurrentRenderer = false;
