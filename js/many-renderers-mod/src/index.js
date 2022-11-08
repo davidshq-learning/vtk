@@ -19,7 +19,7 @@ import vtkInteractorStyleTrackballCamera from '@kitware/vtk.js/Interaction/Style
 import { colors, properties } from './constants';
 import { applyStyle } from './dom-manipulate';
 
-// Meshes
+// Instantiate 3D Meshes (cone, sphere, cube, cylinder)
 const meshes = [];
 
 function addMesh(name, source) {
@@ -43,7 +43,7 @@ const renderWindow = vtkRenderWindow.newInstance();
 // Create our view for the renderWindow
 const renderWindowView = renderWindow.newAPISpecificView();
 
-// Add the renderWindowView to the renderWindow
+// Add the view to the renderWindow
 renderWindow.addView(renderWindowView);
 
 // Setup HTML container for renderWindow view
@@ -63,6 +63,7 @@ const interactor = vtkRenderWindowInteractor.newInstance();
 interactor.setView(renderWindowView);
 interactor.initialize();
 interactor.setInteractorStyle(vtkInteractorStyleTrackballCamera.newInstance());
+
 
 function updateViewPort(element, renderer) {
   // Get the viewport dimensions
@@ -96,14 +97,8 @@ function resize() {
   recomputeViewports();
 }
 
-// Reports changes to dimensions of body in viewport
+// Reports changes to dimensions of elements
 new ResizeObserver(resize).observe(document.body);
-
-// Renderers
-let meshIndex = 0;
-let propertyIndex = 0;
-let bgIndex = 0;
-let rendererId = 1;
 
 // Ensures the interactor is interacting with the user desired rendering
 function bindInteractor(el) {
@@ -117,6 +112,12 @@ function bindInteractor(el) {
     }
   }
 }
+
+// Renderers
+let meshIndex = 0;
+let propertyIndex = 0;
+let bgIndex = 0;
+let rendererId = 1;
 
 function addRenderer() {
   const mesh = meshes[meshIndex];
@@ -143,7 +144,7 @@ function addRenderer() {
   const renderer = vtkRenderer.newInstance({ background });
   container.innerHTML = `${mesh.name} ${prop.name}`;
 
-  // Observe when the mouse is enters or leaves the container
+  // Observe when the mouse enters or leaves the container
   container.addEventListener('pointerenter', () =>
     bindInteractor(container)
   );
