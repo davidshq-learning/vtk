@@ -179,24 +179,6 @@ function addRenderer() {
   RENDERERS[container.id] = renderer;
 }
 
-// The single renderer capture control panel
-const checkbox = document.createElement('input');
-checkbox.type = 'checkbox';
-checkbox.name = 'singleRendererCapture';
-const label = document.createElement('label');
-label.for = checkbox.name;
-label.innerText = 'Enable single renderer capture';
-
-// Listen for changes to control panel
-checkbox.addEventListener('input', (ev) => {
-  setCaptureCurrentRenderer(ev.target.checked);
-});
-
-// Add control panel to viewport
-document.body.appendChild(checkbox);
-document.body.appendChild(label);
-document.body.appendChild(document.createElement('br'));
-
 // Renders a maximum of 64 renders
 for (let i = 0; i < 64; i++) {
   addRenderer();
