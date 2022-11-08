@@ -108,29 +108,12 @@ let propertyIndex = 0;
 let bgIndex = 0;
 let rendererId = 1;
 
-// This doesn't seem to work?
-let captureCurrentRenderer = false;
-
-function setCaptureCurrentRenderer(yn) {
-  captureCurrentRenderer = yn;
-  if (yn && interactor.getCurrentRenderer()) {
-    // fix the current renderer to, well, the current renderer
-    interactor.setCurrentRenderer(interactor.getCurrentRenderer());
-  } else {
-    // remove the fixed current renderer
-    interactor.setCurrentRenderer(null);
-  }
-}
-
 // Ensures the interactor is interacting with the user desired rendering
 function bindInteractor(renderer, el) {
   // only change the interactor's container if needed
   if (interactor.getContainer() !== el) {
     if (interactor.getContainer()) {
       interactor.unbindEvents();
-    }
-    if (captureCurrentRenderer) {
-      interactor.setCurrentRenderer(renderer);
     }
     if (el) {
       interactor.bindEvents(el);
