@@ -99,8 +99,6 @@ function resize() {
 
 // Reports changes to dimensions of body in viewport
 new ResizeObserver(resize).observe(document.body);
-// If page is scrolled
-document.addEventListener('scroll', recomputeViewports);
 
 // Renderers
 let meshIndex = 0;
