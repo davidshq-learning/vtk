@@ -162,8 +162,8 @@ function addRenderer() {
   RENDERERS[container.id] = renderer;
 }
 
-// Renders a maximum of 64 renders
-for (let i = 0; i < 64; i++) {
+// Renders a maximum of 11 renders
+for (let i = 0; i < 11; i++) {
   addRenderer();
 }
 resize();
