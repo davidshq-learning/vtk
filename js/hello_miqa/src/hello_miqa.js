@@ -5,3 +5,7 @@ import vtkProxySource from '@kitware/vtk.js/Proxy/Core/SourceProxy';
 import vtkView from '@kitware/vtk.js/Proxy/Core/ViewProxy';
 import vtkVolumeRepresentationProxy from '@kitware/vtk.js/Proxy/Representations/VolumeRepresentationProxy';
 import '@kitware/vtk.js/Rendering/Profiles/All';
+
+import ConfigUtils from './configUtils';
+
+const { createProxyDefinition, activateOnCreate } = ConfigUtils;
