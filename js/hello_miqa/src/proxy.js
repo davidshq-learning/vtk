@@ -22,30 +22,31 @@ function createDefaultView(classFactory, ui, options, props) {
         createProxyDefinition(
             classFactory,
             ui,
-            [      {
-                type: 'application',
-                link: 'AnnotationOpacity',
-                property: 'annotationOpacity',
-                updateOnBind: true,
-              },
-              {
-                type: 'application',
-                link: 'OrientationAxesVisibility',
-                property: 'orientationAxesVisibility',
-                updateOnBind: true,
-              },
-              {
-                type: 'application',
-                link: 'OrientationAxesPreset',
-                property: 'presetToOrientationAxes',
-                updateOnBind: true,
-              },
-              {
-                type: 'application',
-                link: 'OrientationAxesType',
-                property: 'orientationAxesType',
-                updateOnBind: true,
-              },
+            [
+                {
+                    type: 'application',
+                    link: 'AnnotationOpacity',
+                    property: 'annotationOpacity',
+                    updateOnBind: true,
+                },
+                {
+                    type: 'application',
+                    link: 'OrientationAxesVisibility',
+                    property: 'orientationAxesVisibility',
+                    updateOnBind: true,
+                },
+                {
+                    type: 'application',
+                    link: 'OrientationAxesPreset',
+                    property: 'presetToOrientationAxes',
+                    updateOnBind: true,
+                },
+                {
+                    type: 'application',
+                    link: 'OrientationAxesType',
+                    property: 'orientationAxesType',
+                    updateOnBind: true,
+                },
             ],
             options,
             props,
@@ -71,7 +72,7 @@ export default {
             Slice: createProxyDefinition(
                 vtkSliceRepresentationProxy,
                 proxyUI.Slice,
-                proxyLinks.Slice
+                proxyLinks.Slice,
             ),
             Volume: createProxyDefinition(
                 vtkVolumeRepresentationProxy,
