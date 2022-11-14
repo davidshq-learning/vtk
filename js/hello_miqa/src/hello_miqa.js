@@ -10,6 +10,11 @@ import '@kitware/vtk.js/Rendering/Profiles/All';
 
 import ConfigUtils from './configUtils';
 
+import proxyUI from './proxyUI';
+import proxyLinks from './proxyLinks';
+import proxyFilter from './proxyFilter';
+import proxyViewRepresentationMapping from './proxyViewRepresentationMapping';
+
 const { createProxyDefinition, activateOnCreate } = ConfigUtils;
 
 function createDefaultView(classFactory, ui, options, props) {
