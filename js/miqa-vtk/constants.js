@@ -1,17 +1,10 @@
 export const DEFAULT_VIEW_TYPE = 'View3D:default';
 
-export const VIEW_TYPES = [
-  { text: '3D', value: 'View3D:default' },
-  { text: 'Orientation Y', value: 'View2D_Y:y' },
-  { text: 'Orientation X', value: 'View2D_X:x' },
-  { text: 'Orientation Z', value: 'View2D_Z:z' },
-];
-
-export const VIEW_TYPES_LPS = [
-  { text: '3D', value: 'View3D:default' },
-  { text: 'Sagittal', value: 'View2D_Y:y' },
-  { text: 'Coronal', value: 'View2D_X:x' },
-  { text: 'Axial', value: 'View2D_Z:z' },
+export const VIEW_TYPES = [ // RAS
+  { text: '3D', value: 'View3D:default' }, // LPS: same
+  { text: 'Orientation Y', value: 'View2D_Y:y' }, // LPS: text: 'Sagittal'
+  { text: 'Orientation X', value: 'View2D_X:x' }, // LPS: text: 'Coronal'
+  { text: 'Orientation Z', value: 'View2D_Z:z' }, // LPS: text: 'Axial'
 ];
 
 export const VIEW_ORIENTATIONS = {
