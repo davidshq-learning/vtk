@@ -1,1 +1,2 @@
-- `hello-external` - Renders a cone one can manipulate in the browser, uses externally hosted scripts for VTK.js. Not a recommended method of implementation.
+- `hello-external` - Renders a cone one can manipulate in the browser, uses externally hosted scripts for VTK.js. Not a recommended method of implementation. (works)
+- `hello-npm` - Renders a cone that can be manipulated in the browser (in more ways than `hello-external`) using VTK.js from npm. (works)
