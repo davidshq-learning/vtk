@@ -9,3 +9,6 @@ Alternatively, you may want to fork the `vtk.js` repository and clone your fork.
 
 ### Examples
 VTK.js comes up with a number of examples which are found under `vtk-js/Examples`. 
+
+### Hello VTK
+Includes a number of very simple projects demonstrating the use of VTK.js.
