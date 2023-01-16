@@ -12,3 +12,6 @@ VTK.js comes up with a number of examples which are found under `vtk-js/Examples
 
 ### Hello VTK
 Includes a number of very simple projects demonstrating the use of VTK.js.
+
+### MIQA VTK
+Contains the VTK related code present in MIQA.
