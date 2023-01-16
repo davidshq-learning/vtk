@@ -7,14 +7,30 @@ import vtkView from 'vtk.js/Sources/Proxy/Core/ViewProxy';
 import vtkVolumeRepresentationProxy from 'vtk.js/Sources/Proxy/Representations/VolumeRepresentationProxy';
 import 'vtk.js/Sources/Rendering/Profiles/All';
 
-import ConfigUtils from './configUtils';
-
 import proxyUI from './proxyUI';
 import proxyLinks from './proxyLinks';
 import proxyFilter from './proxyFilter';
 import proxyViewRepresentationMapping from './proxyViewRepresentationMapping';
 
-const { createProxyDefinition, activateOnCreate } = ConfigUtils;
+function createProxyDefinition(
+  classFactory,
+  ui = [],
+  links = [],
+  definitionOptions = {},
+  props = {},
+) {
+  return {
+    class: classFactory,
+    options: { links, ui, ...definitionOptions },
+    props,
+  };
+}
+
+function activateOnCreate(def) {
+  /* eslint-disable no-param-reassign */
+  def.options.activateOnCreate = true;
+  return def;
+}
 
 function createDefaultView(classFactory, ui, options, props) {
   return activateOnCreate(

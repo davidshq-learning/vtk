@@ -1,29 +1,5 @@
 // ----------------------------------------------------------------------------
 
-function createProxyDefinition(
-  classFactory,
-  ui = [],
-  links = [],
-  definitionOptions = {},
-  props = {},
-) {
-  return {
-    class: classFactory,
-    options: { links, ui, ...definitionOptions },
-    props,
-  };
-}
-
-// ----------------------------------------------------------------------------
-
-function activateOnCreate(def) {
-  /* eslint-disable no-param-reassign */
-  def.options.activateOnCreate = true;
-  return def;
-}
-
-// ----------------------------------------------------------------------------
-
 function deepCopyPath(rootObj, pathSpec) {
   const path = typeof pathSpec === 'string' ? pathSpec.split('.') : pathSpec;
   const newRootObj = { ...rootObj };
